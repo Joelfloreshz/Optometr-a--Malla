@@ -1,177 +1,261 @@
-
+/* Estilos Generales y Reseteos */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin: 0;
-    padding: 20px;
-    background-color: #ffe6f2; 
-    color: #777; 
+    padding-top: 20px; /* Espacio para el header si lo tienes fijo arriba */
+    padding-bottom: 150px; /* ¡IMPORTANTE! Espacio para la barra de progreso fija en la parte inferior */
+    background-color: #ffe6f2; /* Fondo rosa muy claro */
+    color: #555; /* Texto un poco más suave */
+    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: #ffb3d9; 
-    color: #fff;
-    padding: 1.5rem 0;
+    background-color: #ff3399; /* Rosa fuerte */
+    color: white;
+    padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    margin-bottom: 2rem;
-    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
 }
 
 header h1 {
-    margin-bottom: 0.5rem;
+    margin: 0;
     font-size: 2.5em;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 main {
-    max-width: 95%; 
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio disponible */
+    max-width: 900px;
     margin: 20px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    padding: 0 20px;
+    box-sizing: border-box; /* Incluye padding en el ancho total */
 }
 
+/* Estilos para las Secciones de Ciclos (Año) */
 .cycle-section {
-    margin-bottom: 40px;
-    padding: 20px;
-    border: 1px solid #ffdde9; 
-    border-radius: 10px;
-    background-color: #fff5f9; 
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    border: 1px solid #ffb3d9;
 }
 
 .cycle-section h2 {
-    color: #ff69b4; 
-    border-bottom: 3px dashed #ff69b4; 
-    padding-bottom: 10px;
-    margin-bottom: 25px;
-    font-size: 2em;
+    color: #d81b60; /* Un rosa más oscuro para los títulos de año */
     text-align: center;
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-size: 2em;
+    border-bottom: 2px solid #ffe6f2;
+    padding-bottom: 15px;
 }
 
+/* Estilos para cada Ciclo (dentro de un año) */
 .cycle {
-    margin-bottom: 30px;
+    background-color: #fcf6f9; /* Un fondo ligeramente diferente para cada ciclo */
+    border-radius: 8px;
     padding: 20px;
-    border: 2px solid #f48fb1; 
-    border-radius: 12px;
-    background-color: #fffafa; 
+    margin-bottom: 25px;
+    border: 1px solid #ffdde6;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.cycle:last-child {
+    margin-bottom: 0; /* Elimina el margen inferior del último ciclo en una sección */
 }
 
 .cycle h3 {
-    color: #d81b60; 
+    color: #ff69b4; /* Rosa medio para los títulos de ciclo */
     margin-top: 0;
-    margin-bottom: 15px;
-    font-size: 1.6em;
+    margin-bottom: 20px;
+    font-size: 1.5em;
     text-align: center;
 }
 
+/* Lista de Materias */
 ul {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 15px; /* Espacio entre las materias */
 }
 
 .subject-item {
+    background-color: #fff;
+    border: 1px solid #ffc2e0;
+    border-radius: 8px;
+    padding: 15px;
     display: flex;
     align-items: center;
-    background-color: #ffe0f2; 
-    border-radius: 8px;
-    padding: 10px 15px;
-    border: 1px solid #fbb4ce; 
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.subject-item:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
 }
 
 .subject-checkbox {
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+    margin-right: 15px;
+    min-width: 20px; /* Asegura un tamaño mínimo para el checkbox */
+    min-height: 20px;
+    accent-color: #ff69b4; /* Color del checkbox al ser seleccionado */
 }
 
 .subject-item label {
+    flex-grow: 1;
     cursor: pointer;
-    font-size: 1.1em;
-    color: #555;
+    font-size: 0.95em;
+    color: #333;
+    display: flex;
+    align-items: center;
 }
 
-
+/* Estilo para materias completadas */
 .subject-checkbox:checked + label {
     text-decoration: line-through;
     color: #aaa;
-    transition: all 0.3s ease-in-out;
+    font-style: italic;
 }
 
-footer {
-    text-align: center;
-    padding: 30px;
-    margin-top: 40px;
-    background-color: #ffb3d9; 
-    color: #fff;
-    font-size: 0.9em;
-    border-radius: 10px;
-    box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
-}
-/* --- Estilos para la Barra de Progreso y Contador --- */
-
+/* --- Estilos para la Barra de Progreso y Contador (FIJA ABAJO) --- */
 .progress-container {
-    background-color: #fffafc; 
+    background-color: #fffafc; /* Fondo suave para el contenedor de progreso */
     border: 1px solid #f9cbe0;
-    border-radius: 10px;
-    padding: 15px 20px; 
+    border-radius: 10px 10px 0 0; /* Bordes redondeados solo en la parte superior */
+    padding: 15px 20px;
     text-align: center;
-    box-shadow: 0 -4px 10px rgba(0,0,0,0.1); 
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.15); /* Sombra hacia arriba más pronunciada */
 
-    /* PROPIEDADES NUEVAS PARA HACERLO FIJO ABAJO */
-    position: fixed; 
-    bottom: 0;       
-    left: 0;        
-    width: 100%;     
-    z-index: 1000;   
-    margin: 0;      
-    box-sizing: border-box; 
-}
-
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding-top: 20px; 
-    padding-bottom: 150px; 
-    background-color: #ffe6f2; 
-    color: #777; 
+    /* PROPIEDADES PARA HACERLO FIJO ABAJO */
+    position: fixed; /* Hace que el elemento se fije a la ventana del navegador */
+    bottom: 0;       /* Lo ancla a la parte inferior */
+    left: 0;         /* Lo ancla al lado izquierdo */
+    width: 100%;     /* Ocupa todo el ancho de la ventana */
+    z-index: 1000;   /* Asegura que esté por encima de otros elementos */
+    margin: 0;       /* Elimina cualquier margen externo */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 }
 
 .progress-bar-wrapper {
-    width: 80%;
-    background-color: #ffe6f2; 
+    width: 90%; /* Ancho de la barra de progreso */
+    background-color: #ffe6f2; /* Color de fondo de la barra vacía */
     border-radius: 15px;
-    height: 25px;
-    margin: 15px auto;
-    overflow: hidden; 
+    height: 28px; /* Altura de la barra */
+    margin: 10px auto; /* Centra la barra */
+    overflow: hidden;
     border: 1px solid #ffb3d9;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1); /* Sombra interna */
 }
 
 .progress-bar {
     height: 100%;
-    width: 0%; 
-    background-color: #ff69b4; 
+    width: 0%; /* Inicialmente 0% */
+    background-color: #ff69b4; /* Color de la barra de progreso */
     border-radius: 15px;
     text-align: center;
-    line-height: 25px; 
+    line-height: 28px; /* Centra el texto verticalmente */
     color: white;
     font-weight: bold;
-    transition: width 0.5s ease-in-out; 
+    transition: width 0.5s ease-in-out; /* Transición suave para el progreso */
+    font-size: 0.9em;
 }
 
 .progress-container p {
-    font-size: 1.1em;
+    font-size: 1.05em; /* Tamaño de fuente ligeramente más grande para el texto */
     color: #555;
-    margin: 8px 0;
+    margin: 4px 0; /* Margen ajustado entre párrafos */
 }
 
 .progress-container span {
     font-weight: bold;
-    color: #d81b60; 
+    color: #d81b60; /* Color distintivo para los números */
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px; /* Margen superior para separarlo del contenido */
+    color: #888;
+    background-color: #f0f0f0; /* Fondo más claro para el footer */
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    main {
+        padding: 0 15px;
+    }
+
+    .cycle-section {
+        padding: 15px;
+    }
+
+    .cycle {
+        padding: 15px;
+    }
+
+    ul {
+        grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+    }
+
+    .subject-item {
+        padding: 12px;
+    }
+
+    .subject-checkbox {
+        min-width: 18px;
+        min-height: 18px;
+        margin-right: 10px;
+    }
+
+    .subject-item label {
+        font-size: 0.9em;
+    }
+
+    .progress-container {
+        padding: 10px 15px;
+    }
+
+    .progress-bar-wrapper {
+        height: 24px;
+    }
+
+    .progress-bar {
+        line-height: 24px;
+        font-size: 0.8em;
+    }
+
+    .progress-container p {
+        font-size: 0.9em;
+    }
+
+    body {
+        padding-bottom: 120px; /* Ajuste para el padding inferior en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    .progress-bar-wrapper {
+        width: 95%; /* Más ancho en pantallas muy pequeñas */
+    }
 }
