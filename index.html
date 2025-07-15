@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pensum de Optometría - Mi Progreso</title>
+    <style>
+        /* Fuentes de Google para un toque más estético */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
+
+        /* Estilos generales para un toque "girly" mejorado */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: linear-gradient(to top, #fce4ec 0%, #f8bbd0 100%); /* Degradado rosa suave */
+            color: #4a148c; /* Morado oscuro para el texto principal */
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh; /* Para que el degradado cubra toda la página */
+            overflow-x: hidden; /* Evita scroll horizontal */
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive; /* Fuente cursiva para el título principal */
+            color: #d81b60; /* Rosa vibrante */
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 3.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #880e4f; /* Rosa oscuro para títulos de año */
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 2.2em;
+            font-weight: 700;
+        }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            color: #e91e63; /* Rosa más brillante para títulos de ciclo */
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+            font-weight: 700;
+        }
+
+        p.intro {
+            text-align: center;
+            color: #6a1b9a; /* Morado medio */
+            font-size: 1.1em;
+            margin-bottom: 40px;
+        }
+
+        /* Barra de progreso fija */
+        .progress-bar-container {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            background-color: #f06292; /* Rosa vibrante */
+            padding: 12px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000; /* Asegura que esté por encima de todo */
+            text-align: center;
+            color: white;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+        }
+
+        .progress-bar {
+            height: 25px;
+            background-image: linear-gradient(to right, #ff80ab, #e91e63); /* Degradado en la barra */
+            width: 0%;
+            border-radius: 12px;
+            margin: 0 auto;
+            transition: width 0.7s ease-in-out; /* Animación más suave */
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .progress-text {
+            margin-top: 8px;
+            font-weight: bold;
+            color: white;
+            font-size: 1.1em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        /* Contenedor principal del pensum para el diseño de araña/flujo */
+        .pensum-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 60px; /* Más espacio entre años */
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .year-wrapper {
+            position: relative;
+            width: 80%; /* Ajuste de ancho para los años */
+            max-width: 1200px;
+        }
+
+        .year-node {
+            background-color: #fff3e0; /* Crema suave para nodos de año */
+            border-radius: 25px; /* Bordes más redondeados */
+            padding: 30px 40px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease-in-out; /* Efecto hover */
+            border: 2px solid #ffab91; /* Borde naranja suave */
+        }
+
+        .year-node:hover {
+            transform: translateY(-5px);
+        }
+
+        .cycle-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Espacio entre ciclos dentro de un año */
+            flex-wrap: wrap;
+            margin-top: 30px; /* Espacio entre título del año y ciclos */
+        }
+
+        .cycle-node {
+            background-color: #fce4ec; /* Rosa muy claro para nodos de ciclo */
+            border-radius: 18px; /* Bordes redondeados */
+            padding: 20px 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            text-align: left;
+            min-width: 280px;
+            flex: 1; /* Para que ocupen espacio equitativo */
+            max-width: 45%; /* Limita el ancho para dos columnas */
+            position: relative;
+            transition: all 0.3s ease-in-out;
+            border: 1px solid #f8bbd0; /* Borde rosa claro */
+        }
+
+        .cycle-node:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+
+        .subject-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .subject-item {
+            cursor: pointer;
+            padding: 10px 0;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed #f48fb1; /* Línea divisoria suave */
+            position: relative; /* Para el círculo de check */
+            overflow: hidden; /* Asegura que el check no se salga */
+        }
+
+        .subject-item:last-child {
+            border-bottom: none;
+        }
+
+        .subject-item:hover {
+            background-color: #ffe0e2; /* Resaltado al pasar el ratón */
+            padding-left: 5px; /* Pequeño desplazamiento */
+        }
+
+        .subject-item.completed {
+            text-decoration: line-through;
+            color: #ad8299; /* Color más tenue para materias completadas */
+            font-style: italic;
+        }
+
+        .subject-item.completed::before {
+            content: '✔'; /* Símbolo de check */
+            position: absolute;
+            left: -15px; /* Posición inicial, animará a 5px */
+            top: 50%;
+            transform: translateY(-50%);
+            color: #4CAF50; /* Verde para el check */
+            font-size: 1.2em;
+            transition: left 0.3s ease-out;
+            opacity: 0; /* Inicialmente invisible */
+            animation: fadeInCheck 0.3s forwards; /* Animación al aparecer */
+        }
+
+        .subject-item.completed:hover::before {
+             left: 5px; /* Mueve el check un poco más a la derecha al hacer hover */
+        }
+
+        @keyframes fadeInCheck {
+            from { left: -15px; opacity: 0; }
+            to { left: 5px; opacity: 1; }
+        }
+
+        .subject-item span {
+            flex-grow: 1;
+            margin-left: 15px; /* Espacio para el check */
+        }
+
+        .subject-item .uv {
+            font-weight: bold;
+            color: #d81b60; /* Rosa fuerte para UV */
+            margin-left: 10px;
+            flex-shrink: 0;
+            background-color: #ffcdd2;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        /* Líneas de conexión SVG para un control más fino y animaciones */
+        svg.connection-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Las líneas no bloquean los clics */
+            z-index: 0; /* Asegura que estén detrás de los nodos */
+        }
+
+        svg.connection-lines line {
+            stroke: #f06292; /* Rosa vibrante para las líneas */
+            stroke-width: 4;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.8s ease-out; /* Animación de dibujo */
+        }
+
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .pensum-container {
+                gap: 40px;
+                padding: 20px 0;
+            }
+            .year-wrapper {
+                width: 95%;
+            }
+            .year-node {
+                padding: 20px;
+            }
+            .cycle-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+            .cycle-node {
+                min-width: unset;
+                width: 90%;
+                max-width: 90%; /* Ocupa casi todo el ancho */
+                padding: 15px 20px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            h3 {
+                font-size: 1.4em;
+            }
+            .progress-bar-container {
+                padding: 8px 0;
+            }
+            .progress-bar {
+                height: 20px;
+            }
+            .progress-text {
+                font-size: 1em;
+            }
+             /* Deshabilitar líneas de conexión SVG para móvil si causan problemas visuales */
+            svg.connection-lines {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar-container">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="progress-text" id="progressText">0/0 materias aprobadas (0%) - 0/0 UV</div>
+    </div>
+
+    <h1>Mi Ruta Optometrista</h1>
+    <p class="intro">¡Marca tu avance en el pensum haciendo clic en cada materia!</p>
+
+    <div class="pensum-container" id="pensumContainer">
+        <div class="year-wrapper">
+            <div class="year-node" id="year1">
+                <h2>Primer Año</h2>
+                <div class="cycle-container">
+                    <div class="cycle-node" id="cycle1">
+                        <h3>Ciclo I</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="4"><span>Biología General (BIO1109)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Filosofía General (FIG1104)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Matemática (MAT1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Química (QCE1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Sociología General (SOG1101)</span><span class="uv">3 UV</span></li>
+                        </ul>
+                    </div>
+                    <div class="cycle-node" id="cycle2">
+                        <h3>Ciclo II</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="3"><span>Bioestadística (BIE1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="5"><span>Biología Humana (BHU1101)</span><span class="uv">5 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Inglés Técnico (INT1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Óptica Física (OFI1101)</span><span class="uv">4 UV</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-wrapper">
+            <div class="year-node" id="year2">
+                <h2>Segundo Año</h2>
+                <div class="cycle-container">
+                    <div class="cycle-node" id="cycle3">
+                        <h3>Ciclo III</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="3"><span>Anatomía Ocular (AOC1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Fisiología Ocular y Neurofisiología de la Visión (FON1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Introducción a la Optometría (IOP1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Microbiología Ocular (MOC1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Óptica Geométrica (OGE1101)</span><span class="uv">3 UV</span></li>
+                        </ul>
+                    </div>
+                    <div class="cycle-node" id="cycle4">
+                        <h3>Ciclo IV</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="4"><span>Lentes Oftálmicas (LOF1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Óptica Fisiológica (OPF1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Optometría Comunitaria I (OCO1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Optometría I y Óptica Instrumental (OOI1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Psicología General (SIC1101)</span><span class="uv">3 UV</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-wrapper">
+            <div class="year-node" id="year3">
+                <h2>Tercer Año</h2>
+                <div class="cycle-container">
+                    <div class="cycle-node" id="cycle5">
+                        <h3>Ciclo V</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="4"><span>Farmacología General (FGE1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Optometría Comunitaria II (OCO2101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Optometría II y Visión Binocular (OVB1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Patología General (PAG1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Tecnología Óptica I (TOP1101)</span><span class="uv">4 UV</span></li>
+                        </ul>
+                    </div>
+                    <div class="cycle-node" id="cycle6">
+                        <h3>Ciclo VI</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="3"><span>Farmacología Ocular (FOC1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Fisiopatología Ocular (FIO1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Optometría Comunitaria III (OCO3101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Optometría III (OPT1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Tecnología Óptica II (TOP2101)</span><span class="uv">3 UV</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-wrapper">
+            <div class="year-node" id="year4">
+                <h2>Cuarto Año</h2>
+                <div class="cycle-container">
+                    <div class="cycle-node" id="cycle7">
+                        <h3>Ciclo VII</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="4"><span>Clínica de Optometría I (COP1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Fisiopatología Ocular II (FIO2101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Lentes de Contacto (LCO1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Optometría Comunitaria IV (OCO4101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Optometría Pediátrica (OPE1101)</span><span class="uv">4 UV</span></li>
+                        </ul>
+                    </div>
+                    <div class="cycle-node" id="cycle8">
+                        <h3>Ciclo VIII</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="3"><span>Clínica de Lentes de Contacto I (CLC1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Clínica de Optometría II (COP2101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Clínica de Patología Ocular (CPO1101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Optometría Comunitaria V (OCO5101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Optometría Geriátrica y Baja Visión (OGB1101)</span><span class="uv">3 UV</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="year-wrapper">
+            <div class="year-node" id="year5">
+                <h2>Quinto Año</h2>
+                <div class="cycle-container">
+                    <div class="cycle-node" id="cycle9">
+                        <h3>Ciclo IX</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="5"><span>Clínica de Integración I y Terapia Visual (CIN1101)</span><span class="uv">5 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Clínica de Lentes de Contacto II (CLC2101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Optométrica Comunitaria VI (OCO6101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Seminario de Clínica I (SDC1101)</span><span class="uv">3 UV</span></li>
+                        </ul>
+                    </div>
+                    <div class="cycle-node" id="cycle10">
+                        <h3>Ciclo X</h3>
+                        <ul class="subject-list">
+                            <li class="subject-item" data-uv="5"><span>Clínica de Integración II y Teleoptometría (CIT2101)</span><span class="uv">5 UV</span></li>
+                            <li class="subject-item" data-uv="4"><span>Gestión de Óptica (GOP1101)</span><span class="uv">4 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Optometría Comunitaria VII (OCO7101)</span><span class="uv">3 UV</span></li>
+                            <li class="subject-item" data-uv="3"><span>Seminario de Clínica II (SDC2101)</span><span class="uv">3 UV</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const subjectItems = document.querySelectorAll('.subject-item');
+            const progressBar = document.getElementById('progressBar');
+            const progressText = document.getElementById('progressText');
+            const pensumContainer = document.getElementById('pensumContainer');
+            let totalSubjects = 0;
+            let completedSubjects = 0;
+            let totalUV = 0;
+            let completedUV = 0;
+
+            // Initialize total counts
+            subjectItems.forEach(item => {
+                totalSubjects++;
+                totalUV += parseInt(item.dataset.uv);
+            });
+
+            // Load saved state from localStorage
+            const savedState = JSON.parse(localStorage.getItem('pensumProgress')) || {};
+            subjectItems.forEach(item => {
+                const subjectName = item.querySelector('span').textContent;
+                if (savedState[subjectName]) {
+                    item.classList.add('completed');
+                    completedSubjects++;
+                    completedUV += parseInt(item.dataset.uv);
+                }
+            });
+
+            updateProgressBar();
+            drawSvgConnections(); // Draw lines initially
+
+            // Add click listener to each subject item
+            subjectItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const subjectName = item.querySelector('span').textContent;
+                    const uvValue = parseInt(item.dataset.uv);
+
+                    if (item.classList.contains('completed')) {
+                        item.classList.remove('completed');
+                        completedSubjects--;
+                        completedUV -= uvValue;
+                        delete savedState[subjectName];
+                    } else {
+                        item.classList.add('completed');
+                        completedSubjects++;
+                        completedUV += uvValue;
+                        savedState[subjectName] = true;
+                    }
+                    localStorage.setItem('pensumProgress', JSON.stringify(savedState));
+                    updateProgressBar();
+                });
+            });
+
+            function updateProgressBar() {
+                const percentage = totalSubjects === 0 ? 0 : (completedSubjects / totalSubjects) * 100;
+                progressBar.style.width = `${percentage}%`;
+                progressText.textContent = `${completedSubjects}/${totalSubjects} materias aprobadas (${percentage.toFixed(1)}%) - ${completedUV}/${totalUV} UV`;
+            }
+
+            // Function to draw SVG lines for smooth connections
+            function drawSvgConnections() {
+                // Remove existing SVG to redraw
+                const existingSvg = pensumContainer.querySelector('svg.connection-lines');
+                if (existingSvg) {
+                    existingSvg.remove();
+                }
+
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.classList.add('connection-lines');
+                // Set dimensions to cover the pensumContainer
+                svg.setAttribute('width', pensumContainer.offsetWidth);
+                svg.setAttribute('height', pensumContainer.offsetHeight);
+                pensumContainer.prepend(svg); // Add SVG as the first child
+
+                const yearWrappers = document.querySelectorAll('.year-wrapper');
+
+                // Draw lines between year nodes
+                for (let i = 0; i < yearWrappers.length - 1; i++) {
+                    const currentYearNode = yearWrappers[i].querySelector('.year-node');
+                    const nextYearNode = yearWrappers[i + 1].querySelector('.year-node');
+
+                    if (currentYearNode && nextYearNode) {
+                        const currentRect = currentYearNode.getBoundingClientRect();
+                        const nextRect = nextYearNode.getBoundingClientRect();
+                        const containerRect = pensumContainer.getBoundingClientRect();
+
+                        const x1 = currentRect.left + currentRect.width / 2 - containerRect.left;
+                        const y1 = currentRect.bottom - containerRect.top; // Bottom of current year
+
+                        const x2 = nextRect.left + nextRect.width / 2 - containerRect.left;
+                        const y2 = nextRect.top - containerRect.top; // Top of next year
+
+                        const midY = (y1 + y2) / 2;
+
+                        // Draw a more flowing line with curves
+                        const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                        path.setAttribute('stroke', '#ff80ab'); // Un rosa más suave para las líneas
+                        path.setAttribute('stroke-width', '5');
+                        path.setAttribute('fill', 'none');
+                        path.setAttribute('stroke-linecap', 'round');
+                        path.setAttribute('stroke-dasharray', '0,0'); // Para animación futura
+                        path.setAttribute('d', `M${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`);
+                        svg.appendChild(path);
+
+                         // Animate drawing the line
+                        const pathLength = path.getTotalLength();
+                        path.style.strokeDasharray = `${pathLength} ${pathLength}`;
+                        path.style.strokeDashoffset = pathLength;
+                        setTimeout(() => {
+                            path.style.strokeDashoffset = 0;
+                        }, 100);
+                    }
+                }
+
+                // Draw lines from cycle nodes to their parent year node
+                document.querySelectorAll('.cycle-node').forEach(cycleNode => {
+                    const parentYearNode = cycleNode.closest('.year-node');
+                    if (!parentYearNode) return;
+
+                    const cycleRect = cycleNode.getBoundingClientRect();
+                    const yearRect = parentYearNode.getBoundingClientRect();
+                    const containerRect = pensumContainer.getBoundingClientRect();
+
+                    const cycleCenterX = cycleRect.left + cycleRect.width / 2 - containerRect.left;
+                    const cycleTop = cycleRect.top - containerRect.top;
+
+                    const yearCenterX = yearRect.left + yearRect.width / 2 - containerRect.left;
+                    const yearBottom = yearRect.top + yearRect.height - containerRect.top;
+
+                    // Draw a line from the top-center of the cycle to the bottom-center of the year
+                    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                    line.setAttribute('x1', cycleCenterX);
+                    line.setAttribute('y1', cycleTop);
+                    line.setAttribute('x2', yearCenterX);
+                    line.setAttribute('y2', yearBottom);
+                    svg.appendChild(line);
+
+                     // Animate drawing the line
+                    const pathLength = line.getTotalLength();
+                    line.style.strokeDasharray = `${pathLength} ${pathLength}`;
+                    line.style.strokeDashoffset = pathLength;
+                    setTimeout(() => {
+                        line.style.strokeDashoffset = 0;
+                    }, 100);
+                });
+            }
+
+            // Recalculate connections on window resize
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(drawSvgConnections, 200); // Debounce resize event
+            });
+
+            // Recalculate connections on scroll (for dynamic positioning if needed)
+            // window.addEventListener('scroll', drawSvgConnections); // Uncomment if nodes shift significantly on scroll
+        });
+    </script>
+</body>
+</html>
