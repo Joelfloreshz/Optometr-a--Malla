@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pensum de Optometría - Mi Progreso</title>
     <style>
-        /* Fuentes de Google para un toque más estético */
+       
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap');
 
-        /* Estilos generales para un toque "girly" mejorado */
+        
         body {
             font-family: 'Montserrat', sans-serif;
-            background-image: linear-gradient(to top, #fce4ec 0%, #f8bbd0 100%); /* Degradado rosa suave */
-            color: #4a148c; /* Morado oscuro para el texto principal */
+            background-image: linear-gradient(to top, #fce4ec 0%, #f8bbd0 100%); 
+            color: #4a148c; 
             margin: 0;
             padding: 20px;
             line-height: 1.6;
-            min-height: 100vh; /* Para que el degradado cubra toda la página */
-            overflow-x: hidden; /* Evita scroll horizontal */
+            min-height: 100vh; 
+            overflow-x: hidden; 
         }
 
         h1 {
-            font-family: 'Pacifico', cursive; /* Fuente cursiva para el título principal */
-            color: #d81b60; /* Rosa vibrante */
+            font-family: 'Pacifico', cursive; 
+            color: #d81b60; 
             text-align: center;
             margin-bottom: 30px;
             font-size: 3.5em;
@@ -31,7 +31,7 @@
 
         h2 {
             font-family: 'Montserrat', sans-serif;
-            color: #880e4f; /* Rosa oscuro para títulos de año */
+            color: #880e4f; 
             text-align: center;
             margin-bottom: 15px;
             font-size: 2.2em;
@@ -40,7 +40,7 @@
 
         h3 {
             font-family: 'Montserrat', sans-serif;
-            color: #e91e63; /* Rosa más brillante para títulos de ciclo */
+            color: #e91e63; 
             text-align: center;
             margin-bottom: 15px;
             font-size: 1.6em;
@@ -49,7 +49,7 @@
 
         p.intro {
             text-align: center;
-            color: #6a1b9a; /* Morado medio */
+            color: #6a1b9a; 
             font-size: 1.1em;
             margin-bottom: 40px;
         }
@@ -59,10 +59,10 @@
             position: sticky;
             top: 0;
             width: 100%;
-            background-color: #f06292; /* Rosa vibrante */
+            background-color: #f06292; 
             padding: 12px 0;
             box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            z-index: 1000; /* Asegura que esté por encima de todo */
+            z-index: 1000; 
             text-align: center;
             color: white;
             border-bottom-left-radius: 15px;
@@ -71,11 +71,11 @@
 
         .progress-bar {
             height: 25px;
-            background-image: linear-gradient(to right, #ff80ab, #e91e63); /* Degradado en la barra */
+            background-image: linear-gradient(to right, #ff80ab, #e91e63); 
             width: 0%;
             border-radius: 12px;
             margin: 0 auto;
-            transition: width 0.7s ease-in-out; /* Animación más suave */
+            transition: width 0.7s ease-in-out; 
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
         }
 
@@ -87,32 +87,32 @@
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
-        /* Contenedor principal del pensum para el diseño de araña/flujo */
+      
         .pensum-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 60px; /* Más espacio entre años */
+            gap: 60px; 
             position: relative;
             padding: 40px 0;
         }
 
         .year-wrapper {
             position: relative;
-            width: 80%; /* Ajuste de ancho para los años */
+            width: 80%; 
             max-width: 1200px;
         }
 
         .year-node {
-            background-color: #fff3e0; /* Crema suave para nodos de año */
-            border-radius: 25px; /* Bordes más redondeados */
+            background-color: #fff3e0; 
+            border-radius: 25px; 
             padding: 30px 40px;
             box-shadow: 0 8px 16px rgba(0,0,0,0.25);
             text-align: center;
             position: relative;
             z-index: 1;
-            transition: transform 0.3s ease-in-out; /* Efecto hover */
-            border: 2px solid #ffab91; /* Borde naranja suave */
+            transition: transform 0.3s ease-in-out; 
+            border: 2px solid #ffab91; 
         }
 
         .year-node:hover {
@@ -122,23 +122,23 @@
         .cycle-container {
             display: flex;
             justify-content: center;
-            gap: 40px; /* Espacio entre ciclos dentro de un año */
+            gap: 40px; 
             flex-wrap: wrap;
-            margin-top: 30px; /* Espacio entre título del año y ciclos */
+            margin-top: 30px; 
         }
 
         .cycle-node {
-            background-color: #fce4ec; /* Rosa muy claro para nodos de ciclo */
-            border-radius: 18px; /* Bordes redondeados */
+            background-color: #fce4ec; 
+            border-radius: 18px; 
             padding: 20px 30px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             text-align: left;
             min-width: 280px;
-            flex: 1; /* Para que ocupen espacio equitativo */
-            max-width: 45%; /* Limita el ancho para dos columnas */
+            flex: 1; 
+            max-width: 45%; 
             position: relative;
             transition: all 0.3s ease-in-out;
-            border: 1px solid #f8bbd0; /* Borde rosa claro */
+            border: 1px solid #f8bbd0; 
         }
 
         .cycle-node:hover {
@@ -159,9 +159,9 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px dashed #f48fb1; /* Línea divisoria suave */
-            position: relative; /* Para el círculo de check */
-            overflow: hidden; /* Asegura que el check no se salga */
+            border-bottom: 1px dashed #f48fb1; 
+            position: relative; 
+            overflow: hidden; 
         }
 
         .subject-item:last-child {
@@ -169,31 +169,31 @@
         }
 
         .subject-item:hover {
-            background-color: #ffe0e2; /* Resaltado al pasar el ratón */
-            padding-left: 5px; /* Pequeño desplazamiento */
+            background-color: #ffe0e2; 
+            padding-left: 5px; 
         }
 
         .subject-item.completed {
             text-decoration: line-through;
-            color: #ad8299; /* Color más tenue para materias completadas */
+            color: #ad8299; 
             font-style: italic;
         }
 
         .subject-item.completed::before {
-            content: '✔'; /* Símbolo de check */
+            content: '✔'; 
             position: absolute;
-            left: -15px; /* Posición inicial, animará a 5px */
+            left: -15px; 
             top: 50%;
             transform: translateY(-50%);
-            color: #4CAF50; /* Verde para el check */
+            color: #4CAF50; 
             font-size: 1.2em;
             transition: left 0.3s ease-out;
-            opacity: 0; /* Inicialmente invisible */
-            animation: fadeInCheck 0.3s forwards; /* Animación al aparecer */
+            opacity: 0; 
+            animation: fadeInCheck 0.3s forwards; 
         }
 
         .subject-item.completed:hover::before {
-             left: 5px; /* Mueve el check un poco más a la derecha al hacer hover */
+             left: 5px; 
         }
 
         @keyframes fadeInCheck {
@@ -203,12 +203,12 @@
 
         .subject-item span {
             flex-grow: 1;
-            margin-left: 15px; /* Espacio para el check */
+            margin-left: 15px; 
         }
 
         .subject-item .uv {
             font-weight: bold;
-            color: #d81b60; /* Rosa fuerte para UV */
+            color: #d81b60; 
             margin-left: 10px;
             flex-shrink: 0;
             background-color: #ffcdd2;
@@ -217,22 +217,22 @@
             font-size: 0.9em;
         }
 
-        /* Líneas de conexión SVG para un control más fino y animaciones */
+       
         svg.connection-lines {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none; /* Las líneas no bloquean los clics */
-            z-index: 0; /* Asegura que estén detrás de los nodos */
+            pointer-events: none; 
+            z-index: 0; 
         }
 
         svg.connection-lines line {
-            stroke: #f06292; /* Rosa vibrante para las líneas */
+            stroke: #f06292; 
             stroke-width: 4;
             stroke-linecap: round;
-            transition: stroke-dashoffset 0.8s ease-out; /* Animación de dibujo */
+            transition: stroke-dashoffset 0.8s ease-out; 
         }
 
         /* Responsive design */
@@ -255,7 +255,7 @@
             .cycle-node {
                 min-width: unset;
                 width: 90%;
-                max-width: 90%; /* Ocupa casi todo el ancho */
+                max-width: 90%; 
                 padding: 15px 20px;
             }
             h1 {
@@ -276,7 +276,7 @@
             .progress-text {
                 font-size: 1em;
             }
-             /* Deshabilitar líneas de conexión SVG para móvil si causan problemas visuales */
+             
             svg.connection-lines {
                 display: none;
             }
@@ -448,7 +448,7 @@
                 totalUV += parseInt(item.dataset.uv);
             });
 
-            // Load saved state from localStorage
+         
             const savedState = JSON.parse(localStorage.getItem('pensumProgress')) || {};
             subjectItems.forEach(item => {
                 const subjectName = item.querySelector('span').textContent;
@@ -460,9 +460,9 @@
             });
 
             updateProgressBar();
-            drawSvgConnections(); // Draw lines initially
+            drawSvgConnections(); 
 
-            // Add click listener to each subject item
+          
             subjectItems.forEach(item => {
                 item.addEventListener('click', () => {
                     const subjectName = item.querySelector('span').textContent;
@@ -490,7 +490,7 @@
                 progressText.textContent = `${completedSubjects}/${totalSubjects} materias aprobadas (${percentage.toFixed(1)}%) - ${completedUV}/${totalUV} UV`;
             }
 
-            // Function to draw SVG lines for smooth connections
+          
             function drawSvgConnections() {
                 // Remove existing SVG to redraw
                 const existingSvg = pensumContainer.querySelector('svg.connection-lines');
@@ -503,7 +503,7 @@
                 // Set dimensions to cover the pensumContainer
                 svg.setAttribute('width', pensumContainer.offsetWidth);
                 svg.setAttribute('height', pensumContainer.offsetHeight);
-                pensumContainer.prepend(svg); // Add SVG as the first child
+                pensumContainer.prepend(svg); 
 
                 const yearWrappers = document.querySelectorAll('.year-wrapper');
 
@@ -518,20 +518,20 @@
                         const containerRect = pensumContainer.getBoundingClientRect();
 
                         const x1 = currentRect.left + currentRect.width / 2 - containerRect.left;
-                        const y1 = currentRect.bottom - containerRect.top; // Bottom of current year
+                        const y1 = currentRect.bottom - containerRect.top; 
 
                         const x2 = nextRect.left + nextRect.width / 2 - containerRect.left;
-                        const y2 = nextRect.top - containerRect.top; // Top of next year
+                        const y2 = nextRect.top - containerRect.top; 
 
                         const midY = (y1 + y2) / 2;
 
-                        // Draw a more flowing line with curves
+                       
                         const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-                        path.setAttribute('stroke', '#ff80ab'); // Un rosa más suave para las líneas
+                        path.setAttribute('stroke', '#ff80ab'); 
                         path.setAttribute('stroke-width', '5');
                         path.setAttribute('fill', 'none');
                         path.setAttribute('stroke-linecap', 'round');
-                        path.setAttribute('stroke-dasharray', '0,0'); // Para animación futura
+                        path.setAttribute('stroke-dasharray', '0,0'); 
                         path.setAttribute('d', `M${x1} ${y1} C ${x1} ${midY}, ${x2} ${midY}, ${x2} ${y2}`);
                         svg.appendChild(path);
 
@@ -578,15 +578,14 @@
                 });
             }
 
-            // Recalculate connections on window resize
+            
             let resizeTimer;
             window.addEventListener('resize', () => {
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(drawSvgConnections, 200); // Debounce resize event
             });
 
-            // Recalculate connections on scroll (for dynamic positioning if needed)
-            // window.addEventListener('scroll', drawSvgConnections); // Uncomment if nodes shift significantly on scroll
+     
         });
     </script>
 </body>
