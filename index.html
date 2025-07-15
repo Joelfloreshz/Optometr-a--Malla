@@ -1,295 +1,272 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malla Curricular - Optometría</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Plan de Estudios de Licenciatura en Optometría (Plan 2008)</h1>
-       <p>Universidad de El Salvador - Facultad de Medicina </p>
-       <p>166 Unidades Valorativas </p>
-    </header>
-
-    <main>
-        <div class="progress-container">
-            <div class="progress-bar-wrapper">
-                <div class="progress-bar" id="progressBar"></div>
-            </div>
-            <p>Materias aprobadas: <span id="approvedCount">0</span> / <span id="totalSubjects">0</span></p>
-            <p>Materias pendientes: <span id="pendingCount">0</span></p>
-            <p>Progreso: <span id="progressPercentage">0%</span></p>
+<main>
+    <div class="progress-container">
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar" id="progressBar"></div>
         </div>
-        <section class="cycle-section">
-            <h2>Primer Año </h2>
-            <div class="cycle">
-                <h3>Ciclo I </h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="sog1101" class="subject-checkbox">
-                        <label for="sog1101">Sociología General (SOG1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="bie1101" class="subject-checkbox">
-                        <label for="bie1101">Bioestadística (BIE1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="qce1101" class="subject-checkbox">
-                        <label for="qce1101">Química para Optometría (QCE1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="bio1109" class="subject-checkbox">
-                        <label for="bio1109">Biología General (BIO1109)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="mat1101" class="subject-checkbox">
-                       <label for="mat1101">Matemática (MAT1101)  </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="fig1104" class="subject-checkbox">
-                        <label for="fig1104">Filosofía General (FIG1104)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="int1101" class="subject-checkbox">
-                        <label for="int1101">Inglés Técnico (INT1101) </label>
-                    </li>
-                </ul>
-            </div>
+        <p>Materias aprobadas: <span id="approvedCount">0</span> / <span id="totalSubjects">0</span></p>
+        <p>Materias pendientes: <span id="pendingCount">0</span></p>
+        <p>Progreso: <span id="progressPercentage">0%</span></p>
+    </div>
+    <section class="cycle-section">
+        <h2>Primer Año</h2>
+        <div class="cycle">
+            <h3>Ciclo I</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="bio1109" class="subject-checkbox">
+                    <label for="bio1109">Biología General (BIO1109) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="fig1104" class="subject-checkbox">
+                    <label for="fig1104">Filosofía General (FIG1104) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="mat1101" class="subject-checkbox">
+                    <label for="mat1101">Matemática (MAT1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="qce1101" class="subject-checkbox">
+                    <label for="qce1101">Química (QCE1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="sog1101" class="subject-checkbox">
+                    <label for="sog1101">Sociología General (SOG1101) - 3 UV</label>
+                </li>
+            </ul>
+        </div>
 
-            <div class="cycle">
-                <h3>Ciclo II </h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="iop1101" class="subject-checkbox">
-                        <label for="iop1101">Introducción a la Optometría (IOP1101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="ofi1101" class="subject-checkbox">
-                        <label for="ofi1101">Óptica Física (OFI1101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="oge1101" class="subject-checkbox">
-                        <label for="oge1101">Óptica Geométrica (OGE1101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="fon1101" class="subject-checkbox">
-                       <label for="fon1101">Fisiología Ocular y Neurofisiología de la Visión (FON 1101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="sic1101" class="subject-checkbox">
-                        <label for="sic1101">Psicología General (SIC1101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="aoc1101" class="subject-checkbox">
-                        <label for="aoc1101">Anatomía Ocular (AOC1101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="moc1101" class="subject-checkbox">
-                       <label for="moc1101">Microbiología Ocular (MOC1101) </label>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        <div class="cycle">
+            <h3>Ciclo II</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="bie1101" class="subject-checkbox">
+                    <label for="bie1101">Bioestadística (BIE1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="bhu1101" class="subject-checkbox">
+                    <label for="bhu1101">Biología Humana (BHU1101) - 5 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="int1101" class="subject-checkbox">
+                    <label for="int1101">Inglés Técnico (INT1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="ofi1101" class="subject-checkbox">
+                    <label for="ofi1101">Óptica Física (OFI1101) - 4 UV</label>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-        <section class="cycle-section">
-           <h2>Segundo Año </h2>
-            <div class="cycle">
-                <h3>Ciclo III </h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="opf1101" class="subject-checkbox">
-                        <label for="opf1101">Óptica Fisiológica (OPF1101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="top1101" class="subject-checkbox">
-                       <label for="top1101">Tecnología Óptica I (TOP1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="opt1101" class="subject-checkbox">
-                        <label for="opt1101">Optometría I (OPT1101) - 23 [cite: 190]</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="oco1101" class="subject-checkbox">
-                        <label for="oco1101">Optometría Comunitaria I (OCO1101) </label>
-                    </li>
-                </ul>
-            </div>
+    <section class="cycle-section">
+        <h2>Segundo Año</h2>
+        <div class="cycle">
+            <h3>Ciclo III</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="aoc1101" class="subject-checkbox">
+                    <label for="aoc1101">Anatomía Ocular (AOC1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="fon1101" class="subject-checkbox">
+                    <label for="fon1101">Fisiología Ocular y Neurofisiología de la Visión (FON1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="iop1101" class="subject-checkbox">
+                    <label for="iop1101">Introducción a la Optometría (IOP1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="moc1101" class="subject-checkbox">
+                    <label for="moc1101">Microbiología Ocular (MOC1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="oge1101" class="subject-checkbox">
+                    <label for="oge1101">Óptica Geométrica (OGE1101) - 3 UV</label>
+                </li>
+            </ul>
+        </div>
 
-            <div class="cycle">
-                <h3>Ciclo IV </h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="ooi1101" class="subject-checkbox">
-                        <label for="ooi1101">Optometría I y Óptica Instrumental (OOI1101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="lof1101" class="subject-checkbox">
-                        <label for="lof1101">Lentes Oftálmicas (LOF1101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="top2101" class="subject-checkbox">
-                        <label for="top2101">Tecnología Óptica II (TOP2101) </label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="ovb1101" class="subject-checkbox">
-                        <label for="ovb1101">Óptica y Visión Binocular (OVB1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="oco3101" class="subject-checkbox">
-                        <label for="oco3101">Optometría Comunitaria III (OCO3101)</label>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="cycle-section">
-            <h2>Tercer Año</h2>
-            <div class="cycle">
-                <h3>Ciclo V</h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="pag1101" class="subject-checkbox">
-                        <label for="pag1101">Patología General (PAG1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="fge1101" class="subject-checkbox">
-                        <label for="fge1101">Farmacología General (FGE1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="cop1101" class="subject-checkbox">
-                        <label for="cop1101">Clínica de Optometría I (COP1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="ope1101" class="subject-checkbox">
-                        <label for="ope1101">Optometría Pediátrica (OPE1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="oco4101" class="subject-checkbox">
-                        <label for="oco4101">Optometría Comunitaria IV (OCO4101)</label>
-                    </li>
-                </ul>
-            </div>
+        <div class="cycle">
+            <h3>Ciclo IV</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="lof1101" class="subject-checkbox">
+                    <label for="lof1101">Lentes Oftálmicas (LOF1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="opf1101" class="subject-checkbox">
+                    <label for="opf1101">Óptica Fisiológica (OPF1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="oco1101" class="subject-checkbox">
+                    <label for="oco1101">Optometría Comunitaria I (OCO1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="ooi1101" class="subject-checkbox">
+                    <label for="ooi1101">Optometría I y Óptica Instrumental (OOI1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="sic1101" class="subject-checkbox">
+                    <label for="sic1101">Psicología General (SIC1101) - 3 UV</label>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-            <div class="cycle">
-                <h3>Ciclo VI</h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="fio1101" class="subject-checkbox">
-                        <label for="fio1101">Fisiopatología Ocular I (FIO 1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="foc1101" class="subject-checkbox">
-                        <label for="foc1101">Farmacología Ocular (FOC1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="lco1101" class="subject-checkbox">
-                        <label for="lco1101">Lentes de Contacto (LCO1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="ogb1101" class="subject-checkbox">
-                        <label for="ogb1101">Optometría Geriátrica y Baja Visión (OGB1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="oco5101" class="subject-checkbox">
-                        <label for="oco5101">Optometría Comunitaria V (OCO5101)</label>
-                    </li>
-                </ul>
-            </div>
-        </section>
+    <section class="cycle-section">
+        <h2>Tercer Año</h2>
+        <div class="cycle">
+            <h3>Ciclo V</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="fge1101" class="subject-checkbox">
+                    <label for="fge1101">Farmacología General (FGE1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="oco2101" class="subject-checkbox">
+                    <label for="oco2101">Optometría Comunitaria II (OCO2101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="ovb1101" class="subject-checkbox">
+                    <label for="ovb1101">Optometría II y Visión Binocular (OVB1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="pag1101" class="subject-checkbox">
+                    <label for="pag1101">Patología General (PAG1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="top1101" class="subject-checkbox">
+                    <label for="top1101">Tecnología Óptica I (TOP1101) - 4 UV</label>
+                </li>
+            </ul>
+        </div>
 
-        <section class="cycle-section">
-            <h2>Cuarto Año</h2>
-            <div class="cycle">
-                <h3>Ciclo VII</h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="fio2101" class="subject-checkbox">
-                        <label for="fio2101">Fisiopatología Ocular II (FIO2101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="clc1101" class="subject-checkbox">
-                        <label for="clc1101">Clínica de Lentes de Contacto I (CLC1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="cpo1101" class="subject-checkbox">
-                        <label for="cpo1101">Clínica de Patología Ocular (CPO1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="sdc1101" class="subject-checkbox">
-                        <label for="sdc1101">Clínica I (SDC1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="oco6101" class="subject-checkbox">
-                        <label for="oco6101">Optometría Comunitaria VI (OCO6101)</label>
-                    </li>
-                </ul>
-            </div>
+        <div class="cycle">
+            <h3>Ciclo VI</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="foc1101" class="subject-checkbox">
+                    <label for="foc1101">Farmacología Ocular (FOC1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="fio1101" class="subject-checkbox">
+                    <label for="fio1101">Fisiopatología Ocular (FIO1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="oco3101" class="subject-checkbox">
+                    <label for="oco3101">Optometría Comunitaria III (OCO3101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="opt1101_c6" class="subject-checkbox">
+                    <label for="opt1101_c6">Optometría III (OPT1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="top2101" class="subject-checkbox">
+                    <label for="top2101">Tecnología Óptica II (TOP2101) - 3 UV</label>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-            <div class="cycle">
-                <h3>Ciclo VIII</h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="cop2101" class="subject-checkbox">
-                        <label for="cop2101">Optometría II (COP 2101) - 31</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="clc2101" class="subject-checkbox">
-                        <label for="clc2101">Clínica de Lentes de Contacto II (CLC2101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="sdc1101_sem1" class="subject-checkbox">
-                        <label for="sdc1101_sem1">Seminario de Clínica I (SDC1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="oco7101_28" class="subject-checkbox">
-                        <label for="oco7101_28">Optometría Comunitaria VII (OCO7101)</label>
-                    </li>
-                     <li class="subject-item">
-                        <input type="checkbox" id="oco7101_43" class="subject-checkbox">
-                        <label for="oco7101_43">Optometría Comunitaria VII (OCO7101)</label>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section class="cycle-section">
-            <h2>Quinto Año</h2>
-            <div class="cycle">
-                <h3>Ciclo IX</h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="cin1101" class="subject-checkbox">
-                        <label for="cin1101">Clínica de Integración I y Terapia Visual (CIN1101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="sdc2101" class="subject-checkbox">
-                        <label for="sdc2101">Seminario de Clínica II (SDC2101)</label>
-                    </li>
-                    <li class="subject-item">
-                        <input type="checkbox" id="gop1101" class="subject-checkbox">
-                        <label for="gop1101">Gestión de Óptica (GOP1101)</label>
-                    </li>
-                </ul>
-            </div>
+    <section class="cycle-section">
+        <h2>Cuarto Año</h2>
+        <div class="cycle">
+            <h3>Ciclo VII</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="cop1101" class="subject-checkbox">
+                    <label for="cop1101">Clínica de Optometría I (COP1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="fio2101" class="subject-checkbox">
+                    <label for="fio2101">Fisiopatología Ocular II (FIO2101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="lco1101" class="subject-checkbox">
+                    <label for="lco1101">Lentes de Contacto (LCO1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="oco4101" class="subject-checkbox">
+                    <label for="oco4101">Optometría Comunitaria IV (OCO4101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="ope1101" class="subject-checkbox">
+                    <label for="ope1101">Optometría Pediátrica (OPE1101) - 4 UV</label>
+                </li>
+            </ul>
+        </div>
 
-            <div class="cycle">
-                <h3>Ciclo X</h3>
-                <ul>
-                    <li class="subject-item">
-                        <input type="checkbox" id="cit2101" class="subject-checkbox">
-                        <label for="cit2101">Clínica de Integración II y Teleoptometría (CIT2101)</label>
-                    </li>
-                </ul>
-            </div>
-        </section>
+        <div class="cycle">
+            <h3>Ciclo VIII</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="clc1101" class="subject-checkbox">
+                    <label for="clc1101">Clínica de Lentes de Contacto I (CLC1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="cop2101" class="subject-checkbox">
+                    <label for="cop2101">Clínica de Optometría II (COP2101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="cpo1101" class="subject-checkbox">
+                    <label for="cpo1101">Clínica de Patología Ocular (CPO1101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="oco5101" class="subject-checkbox">
+                    <label for="oco5101">Optometría Comunitaria V (OCO5101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="ogb1101" class="subject-checkbox">
+                    <label for="ogb1101">Optometría Geriátrica y Baja Visión (OGB1101) - 3 UV</label>
+                </li>
+            </ul>
+        </div>
+    </section>
 
-        </main>
+    <section class="cycle-section">
+        <h2>Quinto Año</h2>
+        <div class="cycle">
+            <h3>Ciclo IX</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="cin1101" class="subject-checkbox">
+                    <label for="cin1101">Clínica de Integración I y Terapia Visual (CIN1101) - 5 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="clc2101" class="subject-checkbox">
+                    <label for="clc2101">Clínica de Lentes de Contacto II (CLC2101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="oco6101" class="subject-checkbox">
+                    <label for="oco6101">Optométrica Comunitaria VI (OCO6101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="sdc1101" class="subject-checkbox">
+                    <label for="sdc1101">Seminario de Clínica I (SDC1101) - 3 UV</label>
+                </li>
+            </ul>
+        </div>
 
-    <footer>
-        <p>Aprobado por el Consejo Superior Universitario según acuerdo N° 035-2007-2011 (IV-1.4) de fecha 23 de enero de 2009. </p>
-        <p>Modificado por el Consejo Superior Universitario según acuerdo N° 076-2011-2013 (IV-1.14) de fecha 16 de julio de 2013. </p>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        <div class="cycle">
+            <h3>Ciclo X</h3>
+            <ul>
+                <li class="subject-item">
+                    <input type="checkbox" id="cit2101" class="subject-checkbox">
+                    <label for="cit2101">Clínica de Integración II y Teleoptometría (CIT2101) - 5 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="gop1101" class="subject-checkbox">
+                    <label for="gop1101">Gestión de Óptica (GOP1101) - 4 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="oco7101" class="subject-checkbox">
+                    <label for="oco7101">Optometría Comunitaria VII (OCO7101) - 3 UV</label>
+                </li>
+                <li class="subject-item">
+                    <input type="checkbox" id="sdc2101" class="subject-checkbox">
+                    <label for="sdc2101">Seminario de Clínica II (SDC2101) - 3 UV</label>
+                </li>
+            </ul>
+        </div>
+    </section>
+</main>
